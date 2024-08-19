@@ -1,0 +1,29 @@
+.moments__items {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+}
+.moments__item {
+    box-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.167);
+    background: $bgcolor;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+}
+.moments__icon {
+    color: $accent;
+    font-size: 60px;
+}
+.moments__title {
+    display: block;
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 10px;
+}
+.moments__text {
+    display: block;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 10px;
+}

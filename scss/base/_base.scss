@@ -1,0 +1,31 @@
+::placeholder { color: #666; }
+::selection { background-color: $accent; color: #fff; }
+input, textarea { outline: none; }
+input:focus:required:invalid, textarea:focus:required:invalid { border-color: red; }
+input:required:valid, textarea:required:valid { border-color: green; }
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+	font-family: $main-font;
+	font-size: $regular-text;
+	line-height: $lineheight;
+	color: $text-color;
+    background-color: $bgcolor;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+	max-width: 1260px;
+	margin: 0 auto;
+	padding: 0 30px;
+}

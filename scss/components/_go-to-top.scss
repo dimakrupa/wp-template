@@ -1,0 +1,29 @@
+#go-top {
+    position: fixed;
+    bottom: 25px;
+    right: 30px;
+    text-align: center;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    background: $accent;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+    z-index: 9000;
+}
+
+#go-top span {
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#go-top:hover {
+    background: $accent-hover;
+    color: $bgcolor;
+}

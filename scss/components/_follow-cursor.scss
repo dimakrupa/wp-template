@@ -1,0 +1,12 @@
+.follow-cursor {
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-color: $accent;
+    border-radius: 50%;
+    transform: translateY(-50%) translateX(-50%); /* центрируем кружок */
+    position: absolute; /* задаём абсолютное позиционирование, чтобы элемент не влиял на остальные элементы и его можно было бы позиционировать следом за курсором */
+    z-index: 99999; /* чтобы элемент был над остальными элементами */
+    pointer-events: none; /* чтобы сквозь элемент можно было взаимодействовать с элементами, находящимися под ним */
+    transition: width 0.64s, height 0.64s, border-radius 0.64s, background 0.64s;
+}

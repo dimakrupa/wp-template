@@ -1,0 +1,44 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 3px;
+    padding: 15px 25px;
+    font-weight: 600;
+}
+.button__accent {
+    color: $bgcolor !important;
+    background: $accent-gradient;
+    transition: background 0.3s ease-in-out;
+
+    &:hover {
+        background: $accent-gradient-hover;
+        color: $bgcolor !important;
+    }
+
+    &:hover > .button__arrow {
+        transform: rotate(45deg);
+    }
+}
+.button__arrow {
+    display: block;
+    margin-left: 10px;
+    transform: rotate(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.button__transp {
+    border: 2px solid $accent;
+    color: $secondary-color;
+    flex-shrink: 0;
+
+    &:hover {
+        background: $accent-gradient-hover;
+        color: $bgcolor !important;
+    }
+
+    &:hover > .button__arrow {
+        transform: rotate(45deg);
+    }
+}

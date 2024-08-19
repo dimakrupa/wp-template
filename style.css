@@ -1,0 +1,871 @@
+@charset "UTF-8";
+/*!
+Theme Name: Yulia Kapitsa
+Author: Dima Krupa
+Author URI: https://t.me/dima_krupa
+Description: Podology Convention 2024 Landing Page
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: yulia-kapitsa
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Generic
+	- Normalize
+	- Box sizing
+# Base
+	- Typography
+	- Elements
+	- Links
+	- Forms
+## Layouts
+# Components
+	- Navigation
+	- Posts and pages
+	- Comments
+	- Widgets
+	- Media
+	- Captions
+	- Galleries
+# plugins
+	- Jetpack infinite scroll
+# Utilities
+	- Accessibility
+	- Alignments
+
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Utilities
+--------------------------------------------------------------*/
+/* Accessibility
+--------------------------------------------- */
+/* Alignments
+--------------------------------------------- */
+/*--------------------------------------------------------------
+# Custom styles
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+}
+.screen-reader-text:focus {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  clip-path: none;
+  color: #000;
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}
+
+/* Do not show the outline on the skip link target. */
+#primary[tabindex="-1"]:focus {
+  outline: 0;
+}
+
+.alignleft {
+  /*rtl:ignore*/
+  float: left;
+  /*rtl:ignore*/
+  margin-right: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.alignright {
+  /*rtl:ignore*/
+  float: right;
+  /*rtl:ignore*/
+  margin-left: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.aligncenter {
+  clear: both;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+/* Slider */
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.slick-list:focus {
+  outline: none;
+}
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.slick-track:before, .slick-track:after {
+  content: "";
+  display: table;
+}
+.slick-track:after {
+  clear: both;
+}
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none;
+}
+[dir=rtl] .slick-slide {
+  float: right;
+}
+.slick-slide img {
+  display: block;
+}
+.slick-slide.slick-loading img {
+  display: none;
+}
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+.slick-initialized .slick-slide {
+  display: block;
+}
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+
+.slick-arrow.slick-hidden {
+  display: none;
+}
+
+/* Slider */
+.slick-loading .slick-list {
+  background: #fff url("./ajax-loader.gif") center center no-repeat;
+}
+
+/* Icons */
+@font-face {
+  font-family: "slick";
+  src: url("./fonts/slick.eot");
+  src: url("./fonts/slick.eot?#iefix") format("embedded-opentype"), url("./fonts/slick.woff") format("woff"), url("./fonts/slick.ttf") format("truetype"), url("./fonts/slick.svg#slick") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Arrows */
+.slick-prev,
+.slick-next {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 20px;
+  line-height: 0px;
+  font-size: 0px;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  padding: 0;
+  border: none;
+  outline: none;
+}
+.slick-prev:hover, .slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+  outline: none;
+  background: transparent;
+  color: transparent;
+}
+.slick-prev:hover:before, .slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before {
+  opacity: 1;
+}
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before {
+  opacity: 0.25;
+}
+.slick-prev:before,
+.slick-next:before {
+  font-family: "slick";
+  font-size: 20px;
+  line-height: 1;
+  color: white;
+  opacity: 0.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev {
+  left: -25px;
+}
+[dir=rtl] .slick-prev {
+  left: auto;
+  right: -25px;
+}
+.slick-prev:before {
+  content: "←";
+}
+[dir=rtl] .slick-prev:before {
+  content: "→";
+}
+
+.slick-next {
+  right: -25px;
+}
+[dir=rtl] .slick-next {
+  left: -25px;
+  right: auto;
+}
+.slick-next:before {
+  content: "→";
+}
+[dir=rtl] .slick-next:before {
+  content: "←";
+}
+
+/* Dots */
+.slick-dotted.slick-slider {
+  margin-bottom: 30px;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: -25px;
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+.slick-dots li button {
+  border: 0;
+  background: transparent;
+  display: block;
+  height: 20px;
+  width: 20px;
+  outline: none;
+  line-height: 0px;
+  font-size: 0px;
+  color: transparent;
+  padding: 5px;
+  cursor: pointer;
+}
+.slick-dots li button:hover, .slick-dots li button:focus {
+  outline: none;
+}
+.slick-dots li button:hover:before, .slick-dots li button:focus:before {
+  opacity: 1;
+}
+.slick-dots li button:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "•";
+  width: 20px;
+  height: 20px;
+  font-family: "slick";
+  font-size: 6px;
+  line-height: 20px;
+  text-align: center;
+  color: black;
+  opacity: 0.25;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots li.slick-active button:before {
+  color: black;
+  opacity: 0.75;
+}
+
+/* FONTS LOAD SECTION */
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat/Montserrat-Light.eot");
+  src: local("Montserrat Light"), local("Montserrat-Light"), url("./fonts/Montserrat/Montserrat-Light.eot?#iefix") format("embedded-opentype"), url("./fonts/Montserrat/Montserrat-Light.woff") format("woff"), url("./fonts/Montserrat/Montserrat-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat/Montserrat-Regular.eot");
+  src: local("Montserrat Regular"), local("Montserrat-Regular"), url("./fonts/Montserrat/Montserrat-Regular.eot?#iefix") format("embedded-opentype"), url("./fonts/Montserrat/Montserrat-Regular.woff") format("woff"), url("./fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat/Montserrat-Medium.eot");
+  src: local("Montserrat Medium"), local("Montserrat-Medium"), url("./fonts/Montserrat/Montserrat-Medium.eot?#iefix") format("embedded-opentype"), url("./fonts/Montserrat/Montserrat-Medium.woff") format("woff"), url("./fonts/Montserrat/Montserrat-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat/Montserrat-SemiBold.eot");
+  src: local("Montserrat SemiBold"), local("Montserrat-SemiBold"), url("./fonts/Montserrat/Montserrat-SemiBold.eot?#iefix") format("embedded-opentype"), url("./fonts/Montserrat/Montserrat-SemiBold.woff") format("woff"), url("./fonts/Montserrat/Montserrat-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat/Montserrat-Bold.eot");
+  src: local("Montserrat Bold"), local("Montserrat-Bold"), url("./fonts/Montserrat/Montserrat-Bold.eot?#iefix") format("embedded-opentype"), url("./fonts/Montserrat/Montserrat-Bold.woff") format("woff"), url("./fonts/Montserrat/Montserrat-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat/Montserrat-ExtraBold.eot");
+  src: local("Montserrat ExtraBold"), local("Montserrat-ExtraBold"), url("./fonts/Montserrat/Montserrat-ExtraBold.eot?#iefix") format("embedded-opentype"), url("./fonts/Montserrat/Montserrat-ExtraBold.woff") format("woff"), url("./fonts/Montserrat/Montserrat-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+/* --------------- reset.css --------------- */
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, em, img, strong, sub, sup, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, table, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0; /* обнуляем отступы и убираем бордюры */
+  vertical-align: baseline; /* приводим все к одной базовой линии */
+  background: transparent; /* чтобы не проскакивали левые фоны, установленные по умолчанию */
+  font-size: 100%; /* размер шрифта всем одинаковый */
+}
+
+a { /* ссылка не в общем списке чтобы не сбрасывать outline по умолчанию */
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  outline: none;
+}
+
+table { /* устраняем отступы между ячейками таблицы */
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td, td img {
+  vertical-align: top; /* возвращаем привычное вертикальное выравнивание */
+}
+
+input, select, button, textarea {
+  margin: 0; /* убираем отступы по умолчанию для элементов форм (в частности для checkbox и radio) */
+  font-size: 100%; /* делаем размер шрифтов везде одинаковым */
+  outline: none;
+}
+
+input, textarea {
+  padding: 0; /* убираем внутренние отступы для текстовых полей */
+}
+
+input[type=checkbox] { /* вертикальное выравнивание чекбоксов и радиобатонов относительно меток */
+  vertical-align: bottom;
+}
+
+input[type=radio] {
+  vertical-align: text-bottom;
+}
+
+sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+/* --------------- /reset.css --------------- */
+/* --------------- базовые настройки ---------*/
+html {
+  min-height: 100%; /* всегда показываем вертикальную полосу прокрутки  */
+}
+
+body {
+  min-height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+.clr {
+  clear: both;
+}
+
+.clearfix:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+/* --------------- /базовые настройки ---------*/
+/* plaseholder transform */
+input::-webkit-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+input::-moz-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+input:-moz-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+input:-ms-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+input:focus::-webkit-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+input:focus::-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+input:focus:-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+input:focus:-ms-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+textarea::-webkit-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+textarea::-moz-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+textarea:-moz-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+textarea:-ms-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+textarea:focus::-webkit-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+textarea:focus::-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+textarea:focus:-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+textarea:focus:-ms-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* plaseholder transform */
+/* GENERAL CSS SETTINGS */
+::placeholder {
+  color: #666;
+}
+
+::selection {
+  background-color: #F74D4D;
+  color: #fff;
+}
+
+input, textarea {
+  outline: none;
+}
+
+input:focus:required:invalid, textarea:focus:required:invalid {
+  border-color: red;
+}
+
+input:required:valid, textarea:required:valid {
+  border-color: green;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #000;
+  background-color: #fff;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.container {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes fade-right {
+  from {
+    transform: translateX(200%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes flareAnimation {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+a, a:visited {
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #F74D4D !important;
+}
+
+.section__title {
+  font-weight: 600;
+  font-size: 25px;
+  text-transform: uppercase;
+  position: relative;
+}
+.section__title::before {
+  content: attr(data-before);
+  position: absolute;
+  top: -30px;
+  left: 50px;
+  font-weight: 600;
+  font-size: 40px;
+  text-transform: uppercase;
+  opacity: 0.1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.section__description {
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+#go-top {
+  position: fixed;
+  bottom: 25px;
+  right: 30px;
+  text-align: center;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  background: #F74D4D;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+  z-index: 9000;
+}
+
+#go-top span {
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#go-top:hover {
+  background: #c44141;
+  color: #fff;
+}
+
+.stop-scroll {
+  overflow-y: hidden;
+}
+
+.section__padding {
+  padding: 100px 0 80px 0;
+}
+
+.section__padding-bottom {
+  padding: 20px 0 80px 0;
+}
+
+.section__margin {
+  margin-top: 70px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 3px;
+  padding: 15px 25px;
+  font-weight: 600;
+}
+
+.button__accent {
+  color: #fff !important;
+  background: linear-gradient(90deg, #f74d4d 0%, #c3b2b2 100%);
+  transition: background 0.3s ease-in-out;
+}
+.button__accent:hover {
+  background: linear-gradient(90deg, #ec2b2b 0%, #a49191 100%);
+  color: #fff !important;
+}
+.button__accent:hover > .button__arrow {
+  transform: rotate(45deg);
+}
+
+.button__arrow {
+  display: block;
+  margin-left: 10px;
+  transform: rotate(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.button__transp {
+  border: 2px solid #F74D4D;
+  color: #000;
+  flex-shrink: 0;
+}
+.button__transp:hover {
+  background: linear-gradient(90deg, #ec2b2b 0%, #a49191 100%);
+  color: #fff !important;
+}
+.button__transp:hover > .button__arrow {
+  transform: rotate(45deg);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.contact-form__title {
+  font-weight: 600;
+  font-size: 25px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.input {
+  border: 0.88px solid #f74d4d;
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #323337;
+  font-family: "Montserrat", sans-serif;
+}
+
+.textarea {
+  border: 0.88px solid #f74d4d;
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #323337;
+}
+.textarea::placeholder {
+  font-weight: 500;
+  font-size: 16px;
+  color: #323337;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0;
+}
+
+.select {
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  color: #323337;
+  font-family: "Montserrat", sans-serif;
+  border: 1px solid #F74D4D;
+  border-radius: 10px;
+  appearance: none;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+}
+
+.select::-ms-expand {
+  display: none;
+}
+
+.select option {
+  font-weight: normal;
+}
+
+*[dir=rtl] .select, :root:lang(ar) .select, :root:lang(iw) .select {
+  background-position: left 0.7em top 50%, 0 0;
+  padding: 0.6em 0.8em 0.5em 1.4em;
+}
+
+/* === DESKTOP FIRST === */
+/* xl <= Extra extra large (xxl) */
+/* lg <= Extra large (xl) */
+/* md <= Large (lg) */
+/* sm <= Medium (md) */
+/* xs <= Small (sm) */
+/* === MOBILE FIRST === */
+/* Custom (xs) */
+/* Small (sm) */
+/* Medium (md) */
+/* Large (lg) */
+/* Extra large (xl) */
+/* Extra extra large (xxl) *//*# sourceMappingURL=style.css.map */
